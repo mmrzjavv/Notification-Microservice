@@ -1,22 +1,30 @@
 ﻿using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Infra;
-
-public static class MassTransitConfig
+namespace Infra
 {
-    public static void AddMassTransitConfiguration(this IServiceCollection services, string rabbitMqHost)
+    public static class MassTransitConfig
     {
-        services.AddMassTransit(config =>
+        public static void AddMassTransitConfiguration(this IServiceCollection services, string rabbitMqHost)
         {
-            config.UsingRabbitMq((context, cfg) =>
+            services.AddMassTransit(config =>
             {
-                cfg.Host(rabbitMqHost, h =>
+                config.UsingRabbitMq((context, cfg) =>
                 {
-                    h.Username("guest");  // یوزرنیم پیش‌فرض
-                    h.Password("guest");  // پسورد پیش‌فرض
+                    cfg.Host(rabbitMqHost, h =>
+                    {
+                        h.Username("guest");
+                        h.Password("guest");
+                    });
+
+                    // تعریف Retry Policy
+                    cfg.UseRetry(retryConfig =>
+                    {
+                        retryConfig.Interval(3, TimeSpan.FromSeconds(5)); // 3 تلاش با فاصله 5 ثانیه
+                        retryConfig.Handle<Exception>(); // می‌توانی نوع خاصی از Exception را مشخص کنی
+                    });
                 });
             });
-        });
+        }
     }
 }

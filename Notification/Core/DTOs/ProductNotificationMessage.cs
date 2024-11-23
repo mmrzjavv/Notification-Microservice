@@ -1,4 +1,4 @@
-﻿namespace Core.DTOs;
+﻿namespace ProductNotificationMessage;
 
 public class ProductNotificationMessage
 {

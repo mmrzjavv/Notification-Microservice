@@ -1,4 +1,4 @@
-﻿namespace ClassLibrary1.DTO;
+﻿namespace ProductNotificationMessage;
 
 public class ProductNotificationMessage
 {

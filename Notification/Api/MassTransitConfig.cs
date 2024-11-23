@@ -1,31 +1,36 @@
 ﻿using MassTransit;
 
-namespace Api;
-
-public static class MassTransitConfig
+namespace Api
 {
-    public static void ConfigureMassTransit(this IServiceCollection services)
+    public static class MassTransitConfig
     {
-        // پیکربندی MassTransit
-        services.AddMassTransit(x =>
+        public static void ConfigureMassTransit(this IServiceCollection services)
         {
-            // اضافه کردن مصرف‌کننده‌ها
-            x.AddConsumer<ProductNotificationConsumer>();
-
-            // پیکربندی RabbitMQ
-            x.UsingRabbitMq((context, cfg) =>
+       
+            services.AddMassTransit(x =>
             {
-                cfg.Host("rabbitmq://localhost"); // آدرس RabbitMQ
+               
+                x.AddConsumer<ProductNotificationConsumer>();
 
-                // تنظیمات صف
-                cfg.ReceiveEndpoint("product-notifications", e =>
+             
+                x.UsingRabbitMq((context, cfg) =>
                 {
-                    e.ConfigureConsumer<ProductNotificationConsumer>(context);
+                    cfg.Host("rabbitmq://localhost", h =>
+                    {
+                        h.Username("guest"); 
+                        h.Password("guest"); 
+                    });
+
+                 
+                    cfg.ReceiveEndpoint("product-notifications", e =>
+                    {
+                        e.ConfigureConsumer<ProductNotificationConsumer>(context);
+                    });
                 });
             });
-        });
 
-        // شروع MassTransit
-        services.AddMassTransitHostedService(); // برای اجرای MassTransit در پس‌زمینه
+         
+            services.AddMassTransitHostedService();
+        }
     }
 }
