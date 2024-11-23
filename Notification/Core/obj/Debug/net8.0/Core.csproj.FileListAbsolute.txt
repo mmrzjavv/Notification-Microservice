@@ -1,0 +1,11 @@
+D:\work\Self\Microservices\Microservice0801\MicroService0810\Notification\Core\bin\Debug\net8.0\Core.deps.json
+D:\work\Self\Microservices\Microservice0801\MicroService0810\Notification\Core\bin\Debug\net8.0\Core.dll
+D:\work\Self\Microservices\Microservice0801\MicroService0810\Notification\Core\bin\Debug\net8.0\Core.pdb
+D:\work\Self\Microservices\Microservice0801\MicroService0810\Notification\Core\obj\Debug\net8.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\work\Self\Microservices\Microservice0801\MicroService0810\Notification\Core\obj\Debug\net8.0\Core.AssemblyInfoInputs.cache
+D:\work\Self\Microservices\Microservice0801\MicroService0810\Notification\Core\obj\Debug\net8.0\Core.AssemblyInfo.cs
+D:\work\Self\Microservices\Microservice0801\MicroService0810\Notification\Core\obj\Debug\net8.0\Core.csproj.CoreCompileInputs.cache
+D:\work\Self\Microservices\Microservice0801\MicroService0810\Notification\Core\obj\Debug\net8.0\Core.dll
+D:\work\Self\Microservices\Microservice0801\MicroService0810\Notification\Core\obj\Debug\net8.0\refint\Core.dll
+D:\work\Self\Microservices\Microservice0801\MicroService0810\Notification\Core\obj\Debug\net8.0\Core.pdb
+D:\work\Self\Microservices\Microservice0801\MicroService0810\Notification\Core\obj\Debug\net8.0\ref\Core.dll
